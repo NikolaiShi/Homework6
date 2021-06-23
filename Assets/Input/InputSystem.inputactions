@@ -1,0 +1,55 @@
+{
+    "name": "InputSystem",
+    "maps": [
+        {
+            "name": "Flappy",
+            "id": "3284b35f-f0a4-4689-b9e8-14663d316337",
+            "actions": [
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "778d9ca6-230b-4972-9ba0-71189ba2e0c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "24a43388-a256-4e6a-b557-ea9230861f50",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8bc38d82-7373-458f-90ad-d8dc9ac67ae6",
+                    "path": "<Touchscreen>/primaryTouch/tap",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6c515ca1-0c05-4abd-b8e6-4cd3da94aa6e",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
