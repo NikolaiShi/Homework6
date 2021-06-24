@@ -26,7 +26,9 @@ public class PlayerController : MonoBehaviour
     
     private Vector3 startPosition;
     private Quaternion startAngle;
-   
+
+    public delegate void MethodContainer();
+    public static event MethodContainer EventGameOver;
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
@@ -52,7 +54,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Game Over");
-
+        if (EventGameOver != null) EventGameOver();
     }
 
     public void Reset()
