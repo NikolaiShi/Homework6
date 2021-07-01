@@ -257,63 +257,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 122066289}
   m_CullTransparentMesh: 1
---- !u!1001 &236568116
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282818, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8763281207628282828, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
-      propertyPath: m_Name
-      value: Block
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
 --- !u!1 &501047726
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,9 +288,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1273252942}
   block: {fileID: 8763281207628282828, guid: 091b157b82d6ad349a814d594b4b98df, type: 3}
+  numberOfBarriers: 8
   timeSpawnBlocks: 2
-  starHighMax: 1.5
-  starHighMin: 0.3
+  startHeightMin: -0.3
+  startHeightMax: 1.7
+  startUI: {fileID: 2003103247}
+  gamePlayUI: {fileID: 817876069}
+  resultUI: {fileID: 1625305409}
+  scoreLable: {fileID: 1170418866}
+  resultScore: {fileID: 951470710}
+  bestResult: {fileID: 860371141}
 --- !u!4 &501047728
 Transform:
   m_ObjectHideFlags: 0
@@ -356,7 +306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 501047726}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.46953157, y: 0.4835476, z: -46.121647}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -526,7 +476,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 801474826}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 501047727}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1273252942}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &801474826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,6 +1129,15 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.40179387
+      value: 0.64214945
+      inSlope: 1.1964123
+      outSlope: 1.1964123
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 1
       value: 1
       inSlope: 0
@@ -1197,7 +1180,7 @@ MonoBehaviour:
       - m_Target: {fileID: 1273252942}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: Jump
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1628,7 +1611,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2003103248
 RectTransform:
   m_ObjectHideFlags: 0

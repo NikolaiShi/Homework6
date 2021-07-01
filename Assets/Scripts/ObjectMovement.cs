@@ -6,12 +6,10 @@ public class ObjectMovement : MonoBehaviour
 {
     private GameObject block;
     [SerializeField]
-    private float speed = 1;
+    public float speed = 1;
     void Start()
     {
         block = gameObject;
-        StartCoroutine(DestroyCoroutin());
-        DestroyObject(block, 16);
     }
 
     // Update is called once per frame
@@ -20,10 +18,4 @@ public class ObjectMovement : MonoBehaviour
         block.transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 
-    IEnumerator DestroyCoroutin()
-    {
-
-        yield return new WaitForSeconds(10);
-        
-    }
 }
