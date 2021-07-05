@@ -29,9 +29,11 @@ public class PlayerController : MonoBehaviour
     private Quaternion startAngle;
 
     public delegate void MethodContainer();
+    public delegate void MethodContainerInt(int points);
     public static event MethodContainer EventGameOver;
     public static event MethodContainer AddOnePoint;
     public static event MethodContainer StartGame;
+    public static event MethodContainerInt AddPoints;
     private void Start()
     {
         playerRigidbody = GetComponent<Rigidbody2D>();
@@ -77,11 +79,34 @@ public class PlayerController : MonoBehaviour
         if (EventGameOver != null) EventGameOver();
     }
 
-    void OnTriggerExit2D(Collider2D other)
+    void OnTriggerExit2D(Collider2D collision)
     {
-        if (AddOnePoint != null) AddOnePoint();
+        if (collision.tag == "Block")
+        {
+            if (AddOnePoint != null) AddOnePoint();
+            Debug.Log("Pipe + 1");
+        }
+
+        if (collision.tag == "Bonus")
+        {
+            Debug.Log("Bonus Exit Collider");
+        }
+
     }
-    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Bonus")
+        {
+            if (AddPoints != null)
+            {
+                int points = collision.GetComponent<Bonus>().bonusPoints;
+                AddPoints(points);
+                Debug.Log("bonus + 1");
+            }
+            collision.gameObject.SetActive(false);
+        }
+    }
+
     public void Restart()
     {
         playerRigidbody.isKinematic = true;
